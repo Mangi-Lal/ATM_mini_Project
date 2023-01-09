@@ -51,7 +51,7 @@ public:
 
     void UpdateMobileNumber(string current_number, string new_number){
         if(current_number==Mobile_number){
-            MobileNumber=new_number;
+            Mobile_number=new_number;
             cout<<endl<<"Your Mobile Number Updated Sucessfully!";
             _getch();
         }
@@ -85,10 +85,11 @@ int main()
     long int Acc_number;
     system("cls");
     ATM Elon;
-    Elon.setData(6179467544579080,Elon,1111,9087654321,999999.00);
+    Elon.setData(617946980,"Elon",1111,"9087654321",999999.00);
 
     do
     {
+        system("cls");
         cout<<"$$$ Welcome To Mini_ATM $$$"<<endl;
         cout<<"Enter Account number: ";
         cin>>Acc_number;
@@ -98,7 +99,6 @@ int main()
         if((Acc_number==Elon.getAccountNumber())&&(enterPIN==Elon.getPin())){
             do
             {
-                system("cls");
                 int amount=0;
                 string Mobile_Number_prev;
                 string Mobile_Number_New;
@@ -108,7 +108,8 @@ int main()
                 cout<<endl<<"2. Cash Withdraw";
                 cout<<endl<<"3. Show User Details";
                 cout<<endl<<"4. Update Mobile Number";
-                cout<<endl<<"5. Exit";
+                cout<<endl<<"5. Exit"<<endl;
+                cin>>choice;
 
                 switch (choice)
                 {
@@ -136,7 +137,7 @@ int main()
                     cout<<"Enter New Mobile Number: ";
                     cin>>Mobile_Number_New;
 
-                    Elon.UpdateMobileNumber(Mobile_Number_prev,Mobile_Number_new);
+                    Elon.UpdateMobileNumber(Mobile_Number_prev,Mobile_Number_New);
                     break;
                 case 5:
                     exit(0);

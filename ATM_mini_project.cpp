@@ -8,7 +8,7 @@ Targets-
 #include<conio.h> // for using _getch function
 #include<iostream>
 #include <string>
-using namespacestd;
+using namespace std;
 
 class ATM
 {
@@ -42,7 +42,7 @@ public:
     }
     string getMobileNumber()
     {
-        return MobileNumber;
+        return Mobile_number;
     }
     double getBalance()
     {
@@ -50,19 +50,42 @@ public:
     }
 
     void UpdateMobileNumber(string current_number, string new_number){
-
+        if(current_number==Mobile_number){
+            MobileNumber=new_number;
+            cout<<endl<<"Your Mobile Number Updated Sucessfully!";
+            _getch();
+        }
+        else
+        {
+            cout<<endl<<"Current Mobile Number is Incorrect !!!";
+            _getch();
+        }
     }
     void CashWithdraw(int amount_w){
+        if(amount_w>0 && amount_w<Balance){
+            Balance-=amount_w;
+            cout<<endl<<"Collect the cash from tray";
+            cout<<endl<<"Available Current Balance: "<<Balance;
+            _getch();
+        }
+        else if(amount_w<=0){
+            cout<<"Enter a valid amount!!";
+            _getch();
+        }
+        else{
+            cout<<"Insufficient Balance";
+            _getch();
+        }
 
     }
-}
+};
 int main()
 {
-    int choice = 0,PIN;
+    int choice = 0,enterPIN;
     long int Acc_number;
     system("cls");
     ATM Elon;
-    setData(6179467544579080,Elon,1111,9087654321,999999.00);
+    Elon.setData(6179467544579080,Elon,1111,9087654321,999999.00);
 
     do
     {
@@ -70,9 +93,9 @@ int main()
         cout<<"Enter Account number: ";
         cin>>Acc_number;
         cout<<"Enter PIN: ";
-        cin>>PIN;
+        cin>>enterPIN;
 
-        if((Acc_number==Elon.getAccountNumber())&&(PIN==Elon.getPin)){
+        if((Acc_number==Elon.getAccountNumber())&&(enterPIN==Elon.getPin())){
             do
             {
                 system("cls");
@@ -111,7 +134,7 @@ int main()
                     cin>>Mobile_Number_prev;
 
                     cout<<"Enter New Mobile Number: ";
-                    cin>>Mobile_Number_new;
+                    cin>>Mobile_Number_New;
 
                     Elon.UpdateMobileNumber(Mobile_Number_prev,Mobile_Number_new);
                     break;

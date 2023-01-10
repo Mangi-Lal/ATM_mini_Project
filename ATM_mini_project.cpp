@@ -10,16 +10,17 @@ Targets-
 #include <string>
 using namespace std;
 
-class ATM
+class ATM // class ATM created 
 {
-private:
+private: //defining member variables 
     long int Account_number;
     string Name;
     int PIN;
     string Mobile_number;
     double Balance;
 
-public:
+public: // defining member functions 
+    // setting data function
     void setData(long int Account_number_s,string Name_s,int PIN_s,string Mobile_number_s,double Balance_s){
         Account_number = Account_number_s;
         Name = Name_s;
@@ -27,7 +28,7 @@ public:
         Mobile_number = Mobile_number_s;
         Balance = Balance_s;
     }
-
+    // function for getting data from member variables within class 
     long int getAccountNumber()
     {
         return Account_number;
@@ -49,6 +50,7 @@ public:
         return Balance;
     }
 
+    //Updating Mobile Number of user 
     void UpdateMobileNumber(string current_number, string new_number){
         if(current_number==Mobile_number){
             Mobile_number=new_number;
@@ -61,6 +63,8 @@ public:
             _getch();
         }
     }
+    
+    // Cashwithdrawl function  
     void CashWithdraw(int amount_w){
         if(amount_w>0 && amount_w<Balance){
             Balance-=amount_w;
@@ -81,9 +85,9 @@ public:
 };
 int main()
 {
-    int choice = 0,enterPIN;
+    int choice = 0,enterPIN; 
     long int Acc_number;
-    system("cls");
+    system("cls");  //clear screen
     ATM Elon;
     Elon.setData(617946980,"Elon",1111,"9087654321",999999.00);
 

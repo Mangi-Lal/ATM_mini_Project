@@ -144,6 +144,7 @@ int main()
             
                 default:
                     cout<<endl<<"Not a Valid key!!!";
+                    _getch();
                 }
                 
             } while (1);
